@@ -1,0 +1,54 @@
+.attribute-title {
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 5px;
+    color: #1d1f22;
+}
+
+.attribute-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.items {
+    margin-right: 12px;
+    padding: 0;
+    border: none;
+    background-color: #fff;
+}
+
+.color-attribute > div {
+    width: 35px;
+    height: 35px;
+    margin: 1px;
+}
+
+.color-attribute.selected-item {
+    border: 1px solid #5ece7b;
+}
+
+.other-attribute {
+    position: relative;
+    border: 1px solid #1d1f22;
+    width: 63px;
+    height: 45px;
+    text-align: center;
+}
+
+.other-attribute h3 {
+    margin: 0;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.other-attribute.selected-item {
+    background: #1d1f22;
+    color: #fff;
+}

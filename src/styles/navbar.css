@@ -1,0 +1,251 @@
+nav {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: none;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    position: absolute;
+    width: 234px;
+    height: 56px;
+    bottom: 0px;
+}
+
+.category-link {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 55px;
+    position: relative;
+}
+
+.nav-selected::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    right: 10%;
+    background-color: #5ECE7B;
+    width: 80%;
+}
+
+.category-text {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: #1d1f22;
+    text-transform: uppercase;
+}
+
+.nav-selected {
+    color: #5ECE7B;
+}
+
+.main-logo {
+    position: absolute;
+    width: 41px;
+    height: 41px;
+    top: calc(50% - 41px / 2);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdowns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+}
+
+.selected-currency {
+    display: inline-block;
+}
+
+.selected-currency,
+.currency {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.currency-icon {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.currency-container,
+.cart-container {
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-container {
+    margin-right: 20px;
+}
+
+.currency-button {
+    width: 50px;
+    text-align: right;
+}
+
+.currency,
+.currency-list ul {
+    padding: 0;
+    margin: 0;
+}
+
+.currency {
+    list-style: none;
+    padding: 5px 0px 5px 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: left;
+    font-family: 'Raleway';
+}
+
+.currency:hover {
+    background-color: #EEEEEE;
+}
+
+.currency-list,
+.cart-list {
+    z-index: 11;
+    position: absolute;
+}
+
+.cart-list {
+    right: -20px;
+    top: 45px;
+    padding: 20px;
+    min-width: 250px;
+    background-color: rgb(255, 255, 255);
+    cursor: default;
+}
+
+.currency-list {
+    width: 110px;
+    top: 60px;
+    left: -20px;
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+
+.cart-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-quantity {
+    visibility: hidden;
+    position: absolute;
+    top: -7px;
+    right: -13px;
+    width: 20px;
+    height: 20px;
+    border-radius: 60px;
+    margin: auto;
+    background-color: #1d1f22;
+    text-align: center;
+    color: white;
+}
+
+.cart-container .cart-content {
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-width: 250px;
+}
+
+.cart-details,
+.cart-total-cost {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.cart-total-cost {
+    justify-content: space-between;
+}
+
+.cart-detail h4,
+.cart-total h4 {
+    font-size: 16px;
+    line-height: 26px;
+    color: #1d1f22;
+    font-style: normal;
+}
+
+.cart-details .title,
+.cart-total-cost .total {
+    font-weight: 700;
+}
+
+.cart-details .total {
+    font-weight: 400;
+}
+
+.cart-details .title {
+   text-align: right;
+}
+
+.cart-details .total {
+   margin-left: 10px;
+}
+
+.cart-details .total,
+.cart-total-cost .total {
+    font-weight: 500;
+}
+
+.hidden-dropdown,
+.body-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.hidden-dropdown.show,
+.cart-quantity.show,
+.body-overlay.show  {
+    visibility: visible;
+    opacity: 1;
+}
+
+.body-overlay.show {
+    position: fixed;
+    height: 100%;
+    top: 80px;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(45, 44, 44, 0.285);
+    z-index: 8;
+}
+
+.cart-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+}
+
+.cart-buttons .cart-btn-view-bag,
+.cart-buttons .cart-btn-check-out {
+    width: 50%;
+}
+
+.cart-buttons button {
+    width: 100%;
+    height: 43px;
+    font-size: 14px;
+}
