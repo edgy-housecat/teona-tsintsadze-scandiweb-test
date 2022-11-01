@@ -8,8 +8,7 @@ class Attributes extends Component {
         const {
             attributes: { items, name },
             selectedAttribute,
-            selectAttribute = () => {},
-            isCartPage = false
+            selectAttribute = () => {}
         } = this.props;
 
         const isColor = name === 'Color';
