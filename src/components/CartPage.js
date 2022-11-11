@@ -7,9 +7,6 @@ import { resetCart } from '../redux/cartSlice';
 import "../styles/cartPage.css";
 
 class CartPage extends Component {
-      // checkoutCart = async () => {
-      //    this.props.resetCart();
-      // };
 
       render() {
          const { cart, currency, resetCart } = this.props;

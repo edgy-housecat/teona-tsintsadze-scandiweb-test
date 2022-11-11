@@ -40,11 +40,11 @@ class ProductPage extends React.Component {
 
         const { data: { product } } = response;
         const { name, attributes, brand, gallery, description, prices, inStock } = product;
-        const selectedAttributes = attributes.map(({ id, name, items }) => {
+        let selectedAttributes = attributes.map(({ id, name, items }) => {
             return {
                 id,
                 name,
-                selectedAttribute: items[0]?.id
+                selectedAttribute: ''
             };
         });
 
@@ -65,15 +65,19 @@ class ProductPage extends React.Component {
     };
 
     selectAttribute = (attributeId, selectedAttr) => {
-        const selectedAttributes = [...this.state.selectedAttributes];
+        let selectedAttributes = [...this.state.selectedAttributes];
 
         const attributeIndex = selectedAttributes.findIndex(
             (attribute) => attribute.id === attributeId
         );
+        
+        selectedAttributes[attributeIndex] = {
+            ...this.state.selectedAttributes[attributeIndex],
+            selectedAttribute: selectedAttr
+        }
 
-        selectedAttributes[attributeIndex].selectedAttribute = selectedAttr;
-
-        this.setState(() => ({
+        this.setState((state) => ({
+            ...state,
             selectedAttributes
         }));
     };
@@ -110,13 +114,13 @@ class ProductPage extends React.Component {
             brand,
             name,
             attributes,
-            selectedAttributes,
             gallery,
             selectedImage,
             description,
             prices,
             inStock
         } = this.state;
+        let { selectedAttributes } = this.state;
         const { currency } = this.props;
         const price = (prices.length !== 0) ? getAmount(prices, currency) : 0;
         return (
@@ -150,7 +154,7 @@ class ProductPage extends React.Component {
                     <h2 className='product-name'>{name}</h2>
 
                     {attributes.map((attribute, index) => {
-                        const selectedAttribute = selectedAttributes.find(
+                        let selectedAttribute = selectedAttributes.find(
                             (attr) => attribute.id === attr.id
                         )?.selectedAttribute;
                         return (

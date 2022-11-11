@@ -7,10 +7,11 @@ class Attributes extends Component {
     render() {
         const {
             attributes: { items, name },
-            selectedAttribute,
             selectAttribute = () => {}
         } = this.props;
 
+        let { selectedAttribute } = this.props;
+        
         const isColor = name === 'Color';
         const attributesItems = items.map((item) => (
             <button

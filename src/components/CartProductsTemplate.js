@@ -96,7 +96,6 @@ class CartProducts extends React.Component {
                         </div>
                         <div className='cart-item-image'>
                             <img src={gallery[selectedImage]} alt="cart-item-pic" />
-                            <div className='cart-img-overlay'></div>
                             {!isCartTab && gallery.length > 1 && (
                                 <div className="arrow-group">
                                     <img
