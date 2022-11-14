@@ -24,7 +24,8 @@ class ProductPage extends React.Component {
             prices: [],
             inStock: false,
             gallery: [],
-            description: ''
+            description: '',
+            allAttrChecked: false
         };
     }
 
@@ -48,6 +49,8 @@ class ProductPage extends React.Component {
             };
         });
 
+        const allAttrChecked = selectedAttributes.length === 0 ? true : false;
+
         const price = getAmount(prices, this.props.currency);
    
         this.setState(() => ({
@@ -60,7 +63,8 @@ class ProductPage extends React.Component {
             description,
             prices,
             price,
-            inStock
+            inStock,
+            allAttrChecked
         }));
     };
 
@@ -75,10 +79,13 @@ class ProductPage extends React.Component {
             ...this.state.selectedAttributes[attributeIndex],
             selectedAttribute: selectedAttr
         }
+        
+        const allAttrChecked = selectedAttributes.every(attr => attr.selectedAttribute !== '')
 
         this.setState((state) => ({
             ...state,
-            selectedAttributes
+            selectedAttributes,
+            allAttrChecked
         }));
     };
 
@@ -118,7 +125,8 @@ class ProductPage extends React.Component {
             selectedImage,
             description,
             prices,
-            inStock
+            inStock,
+            allAttrChecked
         } = this.state;
         let { selectedAttributes } = this.state;
         const { currency } = this.props;
@@ -177,7 +185,7 @@ class ProductPage extends React.Component {
                     <button
                         className='default-button green-button'
                         onClick={() => this.addToCartHelper()}
-                        disabled={!inStock}
+                        disabled={!inStock || !allAttrChecked}
                     >
                         ADD TO CART
                     </button>
